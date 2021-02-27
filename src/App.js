@@ -1,15 +1,23 @@
-import './App.css';
-import Discover from "./pages/home.js"
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Portfolio from "./pages/Portfolio";
+import Nav from "./components/Nav";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-                <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Discover />
-      </header>
-    </div>
+    <Router>
+      <div>
+  <Nav/>
+          <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/portfolio" component={Portfolio} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
